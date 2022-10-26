@@ -18,6 +18,7 @@ class TestAddTask(BaseTest):
         login_page = LoginPage(self.driver)
         login_page.login("administrator@testarena.pl", "sumXQQ72$L")
         main_page = MainPage(self.driver)
+        main_page.select_project()
         main_page.open_tasks()
         task_add = TasksPage(self.driver)
         task_add.add_task("demo_" + random_string(5), random_string(20), random_string(8), "TEST", "V001",

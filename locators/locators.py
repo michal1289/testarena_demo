@@ -10,10 +10,7 @@ class LoginPageLocators:
 
 
 class MainPageLocators:
-    administration_button = "//div[@class='header_admin']"
-    project_dropdown = "activeProject_chosen"
-    project_chosen_search = "//div[@class='chosen-search']//input"
-    project_chosen = "//li[contains(text(),'%s')]"
+    project_list = "activeProject"
     menu_tasks = "Zadania"
 
 
