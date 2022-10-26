@@ -1,9 +1,12 @@
+from selenium.webdriver.common.by import By
+
+from locators.locators import MainPageLocators
+
 
 class MainPage:
     def __init__(self, driver):
         self.driver = driver
-        self.administration_button = "//div[@class='header_admin']"
-        self.project_dropdown = "activeProject_chosen"
-        self.project_chosen_search = "//div[@class='chosen-search']//input"
-        self.project_chosen = "//li[contains(text(),'%s')]"
-        self.menu_tasks = "//a[@href='http://demo.testarena.pl/PP1/tasks']"
+
+    def open_tasks(self):
+        self.driver.find_element(By.LINK_TEXT, MainPageLocators.menu_tasks).click()
+

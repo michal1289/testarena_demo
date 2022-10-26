@@ -1,17 +1,23 @@
 import pytest
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
+import config_reader
+
+from pages.LoginPage import LoginPage
+from pages.MainPage import MainPage
+from pages.TasksPage import TasksPage
+from tests.base_test import BaseTest
 
 
-class TestAddTask:
-    @pytest.fixture
-    def setup(self):
-        url = "http://testarena.pl/demo"
-        self.driver = webdriver.Chrome(ChromeDriverManager().install())
-        self.driver.get(url)
-        self.driver.maximize_window()
-        yield
-        self.driver.quit()
+@pytest.mark.usefixtures("setup")
+class TestAddTask(BaseTest):
 
     def test_add_task(self, setup):
-        pass
+        config = config_reader.load()
+        self.driver.get(config['demo_url'])
+        login_page = LoginPage(self.driver)
+        login_page.login("administrator@testarena.pl", "sumXQQ72$L")
+        main_page = MainPage(self.driver)
+        main_page.open_tasks()
+        task_add = TasksPage(self.driver)
+        task_add.add_task("test title", "desc test", "test", "TEST", "V001", "2022-10-26 23:59")
+
+

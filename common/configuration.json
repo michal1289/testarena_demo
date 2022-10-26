@@ -1,0 +1,8 @@
+{
+  "base_url": "http://testarena.pl/demo",
+  "demo_url": "http://demo.testarena.pl/",
+  "correct_user": "administrator@testarena.pl",
+  "correct_user_pass": "sumXQQ72$L",
+  "incorrect_user": "demoerror@testarena.pl",
+  "incorrect_user_pass": "demo_error"
+}
