@@ -27,8 +27,15 @@ def visibility_of_element_wait(driver, xpath, timeout=10) -> WebElement:
 
 
 def random_string(size):
+    """ Random text to type
+    :param size: text size
+    :return:text with the selected size
+    """
     return ''.join(random.choices(string.ascii_letters, k=size))
 
 
 def date_time_now():
+    """Data and time now
+    :return:data and time now
+    """
     return datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
