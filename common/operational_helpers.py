@@ -1,3 +1,6 @@
+import datetime
+import random
+import string
 import time
 
 from selenium.webdriver.common.by import By
@@ -47,3 +50,11 @@ def visibility_of_element_wait(driver, xpath, timeout=10) -> WebElement:
     else:
         wait = WebDriverWait(driver, timeout)
     return wait.until(element_located, timeout_message)
+
+
+def random_string(size):
+    return ''.join(random.choices(string.ascii_letters, k=size))
+
+
+def date_time_now():
+    return datetime.datetime.now().strftime("%Y-%m-%d %H:%M")

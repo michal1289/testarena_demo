@@ -5,6 +5,8 @@ from pages.LoginPage import LoginPage
 from pages.MainPage import MainPage
 from pages.TasksPage import TasksPage
 from tests.base_test import BaseTest
+from common.operational_helpers import random_string
+from common.operational_helpers import date_time_now
 
 
 @pytest.mark.usefixtures("setup")
@@ -18,6 +20,6 @@ class TestAddTask(BaseTest):
         main_page = MainPage(self.driver)
         main_page.open_tasks()
         task_add = TasksPage(self.driver)
-        task_add.add_task("test title", "desc test", "test", "TEST", "V001", "2022-10-26 23:59")
-
-
+        task_add.add_task("demo_" + random_string(5), random_string(20), random_string(8), "TEST", "V001",
+                          date_time_now())
+        assert task_add.get_add_task_message() == "Zadanie zostało dodane."
